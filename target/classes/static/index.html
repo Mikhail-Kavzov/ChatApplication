@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+      <meta charset="utf-8">
+      <title>TelegRun</title>
+      <link rel="stylesheet" href="css/main.css">
+      <link rel="stylesheet" href="css/font-awesome/css/all.css">
+      <link rel="stylesheet" href="js/scroll-plagin/jquery.mCustomScrollbar.css">
+  </head>
+  <body>
+    <noscript>
+      <h2>Sorry! Your browser doesn't support Javascript</h2>
+    </noscript>
+    <div  class="hidden chat-page">
+        <div class="chat-list">
+            <div class="chat-btn-list">
+
+            </div>
+            <div class="chat-add-join-btn">
+                <div class="btn-join-and-create-wrappers" data-tooltip="Добавить чат"><button class="join-create-chat-buttons"  onclick="joinChat()"><i class="fa fa-plus-circle" aria-hidden="true"></i></button></div>
+                <div class="btn-join-and-create-wrappers" data-tooltip="Создать чат"><button class="join-create-chat-buttons"  onclick="createChat()"><i class="fa fa-users" aria-hidden="true"></i></button></div>
+            </div>
+        </div>
+
+
+        <div class="chat-container">
+            <div class="chat-header">
+                <h2 id="header-chat-name">TelegRun</h2><i id="tg-icon" class="fab fa-telegram-plane"></i>
+            </div>
+            <div class="connecting">
+                Connecting...
+            </div>
+
+
+            <form id="messageForm" name="messageForm">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" id="message" placeholder="Message..." autocomplete="off" class="form-control" maxlength="700">
+                        <button type="button" class="primary" id="btn-smile"><i class="fas fa-smile"></i></button>
+                        <input type="file" name="file" id="file" class="input-file" onchange="sendFile(this)" accept="image/*">
+                        <label class="file" for="file"><i class="fa fa-paperclip" aria-hidden="true"></i></label>
+                        <button type="submit" class="primary" id="btn-message-submit"><i class="fab fa-telegram-plane"></i></button>
+                    </div>
+                </div>
+            </form>
+            <button id="get-btn-msg">Показать предыдущие сообщения</button>
+        </div>
+    </div>
+
+    <div class="chat-forms-wrapper hidden">
+
+        <div id="username-page">
+
+            <div class="username-page-container">
+                <h1 class="title" id="authenticationText">Log in</h1>
+                <form id="usernameForm"  name="usernameForm">
+                    <div class="form-group">
+                        <input type="text" id="email" placeholder="Email..." autocomplete="off" class="form-control" maxlength="30">
+                        <input type="password" id="password" placeholder="Password..." autocomplete="off" class="form-control" maxlength="30">
+                        <input type="button" value="Join" class="accent username-submit" id="AJoin" onclick="connect(this)" disabled>
+                        <input type="button" value="Registry" class="accent username-submit" id="Registry" onclick="regForm(this)">
+                    </div>
+                </form>
+                <form id="registerForm" name="registerForm" class="hidden">
+                    <div class="form-group">
+                        <input type="text" id="regNickname" placeholder="Nickname..." autocomplete="off" class="form-control" maxlength="15">
+                        <input type="text" id="regEmail" placeholder="Email..." autocomplete="off" class="form-control" maxlength="30">
+                        <input type="password" id="regPassword" placeholder="Password..." autocomplete="off" class="form-control" maxlength="30">
+                        <input type="button" value="Join" class="accent username-submit" id="regJoin" onclick="regConnect(this)" disabled>
+                        <input type="button" value="Log in" class="accent username-submit" id="Autorize" onclick="autoForm()">
+                    </div>
+                </form>
+            </div>
+
+        <div id="ChatJoinForm" class="hidden username-page-container">
+            <h1 class="title" id="JoinText">Join Chat</h1>
+            <form  name="ChatJoinForm">
+                <div class="form-group">
+                    <input type="text" id="cJname" placeholder="Chatname..." autocomplete="off" class="form-control" maxlength="15">
+                    <input type="password" id="cJpassword" placeholder="Password..." autocomplete="off" class="form-control" maxlength="30">
+                    <input type="button" value="Join" class="accent username-submit" id="cJJoin" onclick="onJoinBtnForm()" disabled>
+                    <input type="button" value="Exit" class="accent username-submit" id="cJExit" onclick="onExitJoin()">
+                </div>
+            </form>
+        </div>
+
+
+        <div id="ChatCreateForm" class="hidden username-page-container">
+            <h1 class="title" id="CreateChatText">Create Chat</h1>
+            <form  name="ChatCreateForm">
+                <div class="form-group">
+                    <input type="text" id="cChtName"  placeholder="Chatname..." autocomplete="off" class="form-control" maxlength="15">
+                    <input type="password" id="cChtpassword1" placeholder="Password..." autocomplete="off" class="form-control" maxlength="30">
+                    <input type="password" id="cChtpassword2" placeholder="Repeat Password..." autocomplete="off" class="form-control" maxlength="30">
+                    <input type="button" value="Create" class="accent username-submit" id="cChtJoin" onclick="onCreateBtnForm()" disabled>
+                    <input type="button" value="Exit" class="accent username-submit" id="cChtExit" onclick="onExitCreate()">
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
