@@ -1,2 +1,1 @@
-# ChatApplication
-Chat on Java
+Chat messenger. Application allows connection between multiple users. If you wanna use this code, you need to install Spring extension, create database and set up configuration settings for database provided in configuration files.
